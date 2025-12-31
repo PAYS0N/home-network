@@ -23,7 +23,9 @@ sudo netfilter-persistent save
 saved at /etc/iptables/rules.v4
 iptables gives internet to ips in the ipset allowed_internet
 view current rules:
+sudo iptables -L INPUT -v -n --line-numbers
 sudo iptables -L FORWARD -v -n --line-numbers
+sudo iptables -L OUTPUT -v -n --line-numbers
 sudo iptables -t nat -L POSTROUTING -v -n
 
 ipset
