@@ -39,4 +39,5 @@ sudo ipset save | sudo tee /etc/ipset.conf > /dev/null
 to view current devices:
 sudo ipset list allowed_internet
 
+If a crash happens again, save dmesg; consider disabling p2p in driver.
 
