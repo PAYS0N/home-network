@@ -6,7 +6,6 @@ dnsmasq as the dns service
 gateway at 192.168.22.1
 autoassign 100-200
 pi: .1
-ha: .10
 laptop/pc: .50-.74
 phones: .75-.99
 config at /etc/dnsmasq.d/router.conf
@@ -38,6 +37,25 @@ sudo ipset del allowed_internet 192.168.22.100
 sudo ipset save | sudo tee /etc/ipset.conf > /dev/null
 to view current devices:
 sudo ipset list allowed_internet
+
+docker ipset
+to allow docker containers (only ha rn) access
+sudo ipset add allowed_docker 172.19.0.10
+to block
+sudo ipset del allowed_docker 172.19.0.10
+to view current
+sudo ipset list allowed_docker
+DO NOT SAVE HA AS allowed_docker.
+
+ha: 172.19.0.10
+config at /home/pays0n/homeassistant
+using rootful docker with port publishing 8123:8123
+to view logs: sudo docker logs -f homeassistant
+to restart: 
+	sudo docker stop homeassistant
+	sudo docker ps
+	sudo docker rm <container name>
+	sudo docker compose up -d
 
 If a crash happens again, save dmesg; consider disabling p2p in driver.
 
