@@ -5,6 +5,7 @@ services:
     restart: unless-stopped
     ports:
       - "8123:8123"  # Home Assistant web interface
+      - "6053:6053"  # ESPHome integration
     volumes:
       - /home/pays0n/homeassistant:/config
       - /etc/localtime:/etc/localtime:ro

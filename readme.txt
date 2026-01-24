@@ -53,7 +53,7 @@ using rootful docker with port publishing 8123:8123
 to view logs: sudo docker logs -f homeassistant
 to restart: 
 	sudo docker stop homeassistant
-	sudo docker ps
+	sudo docker ps -a
 	sudo docker rm <container name>
 	sudo docker compose up -d
 
